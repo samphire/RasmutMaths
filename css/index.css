@@ -1,0 +1,84 @@
+span {
+    display: inline-block;
+    font-size: 4rem;
+    padding: 0 10px;
+}
+
+body {
+    margin: 0;
+    font-size: large;
+}
+
+input {
+    font-size: 3rem;
+    margin: 20px 15px;
+    padding: 3px;
+}
+
+#welcome {
+    padding-top: 30px;
+}
+
+#avatar > img {
+    width: 16%;
+    margin-left: 3%;
+}
+
+#avatar > #progress {
+    width: 40%;
+    margin: auto;
+    margin-top: 20px;
+    padding-bottom: 5%;
+}
+
+#avatar > #progress > img {
+    width: 16%;
+    margin-left: 3%;
+}
+
+#cash {
+    overflow: hidden;
+    font-size: xx-large;
+}
+
+#cash > img {
+    margin-left: 6%;
+    float: left;
+}
+#coin{
+    width: 100px;
+}
+
+#cash > table {
+    text-align: right;
+    line-height: 150%;
+    padding: 4% 10% 2% 15%;
+}
+#userInfo{
+    text-align:center;
+    font-size: 5rem;
+}
+#story, #choose > p {
+    text-align: center;
+    font-size: 3rem;
+}
+#storyDescription{
+    text-align: center;
+    font-size: 1.6rem;
+}
+div[id^="operator"]{
+    width: 75%;
+    margin: auto;
+}
+div[id^="operator"] > img{
+    margin-left: 2%;
+    margin-bottom: 3%;
+    vertical-align: middle;
+}
+#streak{
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    font-size: 6rem;
+    padding: 0 20px 20px 0;
+}
