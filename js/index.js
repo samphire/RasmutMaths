@@ -12,22 +12,32 @@ function fetchData() {
         url: 'data.php',
         datatype: 'json',
         success: function (data) {
-            alert(data);
+            // alert(data);
+            var myData = (JSON.parse(data));
+            welcomedata = myData.allData[0].welcomeData[0];
+            exercisedata = myData.allData[1].exerciseData;
+            chosenUser = welcomedata.id;
+            chosenStory = welcomedata.story_name;
+            avatar_lvl = parseInt(welcomedata.avatar_lvl);
+            perfects = parseInt(welcomedata.perfects);
+            cash_won = parseInt(welcomedata.cash_won);
+            cash_paid = parseInt(welcomedata.cash_paid);
+            setWelcomeData();
         },
         fail: function () {
             alert('fail');
         }
     });
 }
-
-
-var i, a, b, c, rand1, rand2, answer;
 // user information
-var chosenUser, chosenStory, name, nickname, email ;
+var welcomedata, exercisedata;
+var chosenUser, chosenStory, avatar_lvl, perfects, cash_won, cash_paid;
+
+var a, b, c, rand1, rand2, answer;
 var numberOfQuestions;
 var streak = 0;
 var testArr = [];
-for (i = 0; i < 20; i++) {
+for (var i = 0; i < 20; i++) {
     rand1 = Math.floor(Math.random() * 19) + 1;
     rand2 = Math.floor(Math.random() * 19) + 1;
     answer = rand1 + rand2;
@@ -35,44 +45,53 @@ for (i = 0; i < 20; i++) {
 }
 
 function makeTest(numDig, numOp, op, numq) { //Number of digits in the operands, number of operands, operator, number of questions
-    chosenUser = 1;  //fake hard setting user and story
-    chosenStory = 2;
-    name="Samantha";
-    nickname="Rasmut";
-    email="sam@sam.com";
+
     numberOfQuestions = numq;
     var operands = new Array(numOp);
     var newElement, newTextNode, opChar, answer;
     var place = document.getElementById("test");
     switch (op) { // print correct operator
-        case 0:
+        case 1:
             opChar = "+";
             break;
-        case 1:
+        case 2:
             opChar = "-";
             break;
-        case 2:
+        case 3:
             opChar = "*";
             break;
-        case 3:
+        case 4:
             opChar = "/";
             break;
     }
 
-    for (i = 0; i < numq; i++) {
+    for (var i = 0; i < numq; i++) {
         var plusAns = 0;
         var minAns = 0;
         var timAns = 0;
         var divAns = 0;
-        for (a = 0; a < numOp; a++) {
-            operands[a] = Math.floor(Math.random() * Math.pow(10, numDig));
+        
+        switch(op){
+            case 1:
+                operands = getPlusOperands(numDig, numOp);
+                break;
+            case 2:
+                operands = getMinusOperands(numDig, numOp);
+                break;
+            case 3:
+                operands = getTimesOperands(numDig, numOp);
+                break;
+            case 4:
+                operands = getDivOperands(numDig, numOp);
+                break;
         }
-        for (b = 0; b < operands.length; b++) {
+                       
+        for (b = 0; b < operands.length; b++) { // Replace this by putting in individual math functions!!!!!!!!!
             plusAns += operands[b];
             minAns -= operands[b];
             timAns *= operands[b];
             divAns /= operands[b];
-            if (i === 1) {
+            if (b === 1) {
                 minAns = operands[0] - operands[1];
                 timAns = operands[0] * operands[1];
                 divAns = operands[0] / operands[1];
@@ -99,16 +118,16 @@ function makeTest(numDig, numOp, op, numq) { //Number of digits in the operands,
         newElement.id = "input" + (i + 1);
         answer = 0;
         switch (op) { // work out the answer!
-            case 0: // plus
+            case 1: // plus
                 answer = plusAns;
                 break;
-            case 1: // minus
+            case 2: // minus
                 answer = minAns;
                 break;
-            case 2: // times
+            case 3: // times
                 answer = timAns;
                 break;
-            case 3: // divide
+            case 4: // divide
                 answer = divAns;
                 break;
         }
@@ -138,9 +157,9 @@ function checkResult(event) {
         var nextQ = parseInt(this.id.slice(5)) + 1;
         if (nextQ <= numberOfQuestions) {
             document.getElementById('input' + nextQ).focus();
-        } else{
+        } else {
             //Perfect?
-            if(streak === numberOfQuestions){
+            if (streak === numberOfQuestions) {
                 alert('perfect');
             }
             //Finish exercise

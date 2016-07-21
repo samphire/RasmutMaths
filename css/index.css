@@ -82,3 +82,8 @@ div[id^="operator"] > img{
     font-size: 6rem;
     padding: 0 20px 20px 0;
 }
+#test{
+    width: 84%;
+    margin: auto;
+    margin-top: 10%;
+}
