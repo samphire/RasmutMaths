@@ -2,6 +2,11 @@
  * Created by matthew on 7/20/2016.
  */
 function setWelcomeData() {
+    // Clear existing data
+    $("#avatar").children().not("#progress").remove();
+    $("#progress").children().remove();
+    $("#choose").children().not("p").remove();
+    
     var i;
     // Set User Info
     $("#userInfo").text(welcomedata.name);
@@ -30,7 +35,13 @@ function setWelcomeData() {
     // Set exercise data
     for (i = 0; i < exercisedata.length; i++) {
         var opnum = "<div id='operator" + (i + 1) + "'>";
-        opnum += '<img src="assets/img/' + exercisedata[i].btn_image + '" onclick="makeTest(' + exercisedata[i].num_of_digits + ',' + exercisedata[i].numOfOperands + ',' + exercisedata[i].operatorid + ',' + exercisedata[i].num_of_qns + ')">';
+        if (exercisedata[i].iterations_done == exercisedata[i].iterations) {
+            opnum += '<img src="assets/img/' + exercisedata[i].btn_image + '">';
+        } else {
+            opnum += '<img src="assets/img/' + exercisedata[i].btn_image + '" onclick="makeTest(' + exercisedata[i].num_of_digits + ',' + exercisedata[i].numOfOperands;
+            opnum += ',' + exercisedata[i].operatorid + ',' + exercisedata[i].num_of_qns + ',' + exercisedata[i].exerciseid;
+            opnum +=  ',' + exercisedata[i].iterations_done + ', '+ i +')">';
+        }
         var iterations = parseInt(exercisedata[i].iterations);
         for (var j = 0; j < iterations; j++) {
             if (j < exercisedata[i].iterations_done) {

@@ -13,6 +13,7 @@ input {
     font-size: 3rem;
     margin: 20px 15px;
     padding: 3px;
+    width: 20%;
 }
 
 #welcome {

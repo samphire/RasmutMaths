@@ -16,8 +16,12 @@ function fetchData() {
             var myData = (JSON.parse(data));
             welcomedata = myData.allData[0].welcomeData[0];
             exercisedata = myData.allData[1].exerciseData;
+
+            // alert(JSON.stringify(welcomedata) + "\n\n" + JSON.stringify(exercisedata));
+
             chosenUser = welcomedata.id;
             chosenStory = welcomedata.story_name;
+            chosenStoryId = exercisedata[0].storyid;
             avatar_lvl = parseInt(welcomedata.avatar_lvl);
             perfects = parseInt(welcomedata.perfects);
             cash_won = parseInt(welcomedata.cash_won);
@@ -31,21 +35,19 @@ function fetchData() {
 }
 // user information
 var welcomedata, exercisedata;
-var chosenUser, chosenStory, avatar_lvl, perfects, cash_won, cash_paid;
+var chosenUser, chosenStory, chosenStoryId, avatar_lvl, perfects, cash_won, cash_paid;
+// exercise information
+var exId, itDone, exIndex;
 
-var a, b, c, rand1, rand2, answer;
+
+var a, b, c;
 var numberOfQuestions;
 var streak = 0;
-var testArr = [];
-for (var i = 0; i < 20; i++) {
-    rand1 = Math.floor(Math.random() * 19) + 1;
-    rand2 = Math.floor(Math.random() * 19) + 1;
-    answer = rand1 + rand2;
-    testArr.push({r1: rand1, r2: rand2, result: answer});
-}
 
-function makeTest(numDig, numOp, op, numq) { //Number of digits in the operands, number of operands, operator, number of questions
-
+function makeTest(numDig, numOp, op, numq, exid, itdone, exindex) { //Number of digits in the operands, number of operands, operator, number of questions
+    exId = exid;
+    itDone = itdone;
+    exIndex = exindex;
     numberOfQuestions = numq;
     var operands = new Array(numOp);
     var newElement, newTextNode, opChar, answer;
@@ -70,8 +72,8 @@ function makeTest(numDig, numOp, op, numq) { //Number of digits in the operands,
         var minAns = 0;
         var timAns = 0;
         var divAns = 0;
-        
-        switch(op){
+
+        switch (op) {
             case 1:
                 operands = getPlusOperands(numDig, numOp);
                 break;
@@ -85,7 +87,7 @@ function makeTest(numDig, numOp, op, numq) { //Number of digits in the operands,
                 operands = getDivOperands(numDig, numOp);
                 break;
         }
-                       
+
         for (b = 0; b < operands.length; b++) { // Replace this by putting in individual math functions!!!!!!!!!
             plusAns += operands[b];
             minAns -= operands[b];
@@ -115,6 +117,7 @@ function makeTest(numDig, numOp, op, numq) { //Number of digits in the operands,
         place.appendChild(newElement);
         newElement = document.createElement("input");
         newElement.setAttribute("size", "5");
+        newElement.setAttribute("type", "number");
         newElement.id = "input" + (i + 1);
         answer = 0;
         switch (op) { // work out the answer!
@@ -160,12 +163,62 @@ function checkResult(event) {
         } else {
             //Perfect?
             if (streak === numberOfQuestions) {
+                perfectTest();
                 alert('perfect');
+            } else {
+                alert('oh dear. Try again!');
             }
             //Finish exercise
+            streak = 0;
+            $("#test").children().not("#streak").remove();
+            $("#streak").text(0);
             $('#test').hide();
             $('#welcome').show();
         }
 
     }
+}
+
+function perfectTest() {
+    // add 1 to perfects
+    // if perfects = 5, set to 0 and level up avatar (unless end of Story!)
+    // add 1 to iterations done
+    var newPerf = perfects;
+    var newAv = avatar_lvl;
+    var newCash = cash_won + 100;
+    if (parseInt(welcomedata.perfects) < 4) {
+        perfects +=1;
+        welcomedata.perfects = perfects;
+        newPerf = perfects;
+    } else { // avatar level up
+        welcomedata.perfects = 0;
+        newPerf = 0;
+        if (parseInt(welcomedata.avatar_lvl) === 4) {
+            alert("You have completed the whole STORY!!!\n\nYou win SUPER BONUS 1000 won!!!!!!!!");
+            newCash += 1000;
+        } else {
+            alert("Congratulations! Your avatar is level up!\n\nYou win bonus money: 200 won!!!");
+            newCash += 200;
+        }
+        alert("current avatar level: " + avatar_lvl);
+        avatar_lvl += 1;
+        newAv = avatar_lvl;
+        welcomedata.avatar_lvl = newAv;
+    }
+    cash_won = newCash;
+    welcomedata.cash_won = cash_won;
+
+    var myUrl = "addIteration.php?user=" + chosenUser + "&storyid=" + chosenStoryId + "&exerciseid=" + exId + "&newiteration=" + (parseInt(itDone) + 1);
+    myUrl += "&newperf=" + newPerf + "&newav=" + newAv + "&newcash=" + newCash;
+    exercisedata[exIndex].iterations_done = itDone + 1;
+    setWelcomeData();
+    // alert (myUrl);
+    $.ajax({
+        url: myUrl,
+        success: function (data) {
+            alert("success if 1: " + data);
+        },
+        fail: function () {
+        }
+    });
 }
