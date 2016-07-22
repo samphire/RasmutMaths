@@ -1,7 +1,7 @@
 span {
     display: inline-block;
-    font-size: 4rem;
-    padding: 0 10px;
+    font-size: 2rem;
+    padding: 0 3%;
 }
 
 body {
@@ -10,17 +10,21 @@ body {
 }
 
 input {
-    font-size: 3rem;
-    margin: 20px 15px;
-    padding: 3px;
+    border: none;
+    font-size: 1.9rem;
+    margin: 14px 5px;
+    padding: 2px;
     width: 20%;
 }
 
 #welcome {
-    padding-top: 30px;
+    padding-top:20px;
 }
-
+#avatar{
+    margin-top: -20px;
+}
 #avatar > img {
+    z-index: 100;
     width: 16%;
     margin-left: 3%;
 }
@@ -28,10 +32,16 @@ input {
 #avatar > #progress {
     width: 40%;
     margin: auto;
-    margin-top: 20px;
-    padding-bottom: 5%;
+    margin-top: 5px;
+    padding-bottom: 1%;
 }
 
+#userInfo{
+    position: relative;
+    text-align:center;
+    font-size: 2.2rem;
+    z-index: 200;
+}
 #avatar > #progress > img {
     width: 16%;
     margin-left: 3%;
@@ -39,52 +49,63 @@ input {
 
 #cash {
     overflow: hidden;
-    font-size: xx-large;
+    font-size: large;
 }
 
 #cash > img {
     margin-left: 6%;
     float: left;
+    width: 26%;
 }
 #coin{
-    width: 100px;
+    width: 50px;
 }
 
 #cash > table {
     text-align: right;
-    line-height: 150%;
-    padding: 4% 10% 2% 15%;
-}
-#userInfo{
-    text-align:center;
-    font-size: 5rem;
+    line-height: 140%;
+    padding: 4% 10% 2% 5%;
 }
 #story, #choose > p {
     text-align: center;
-    font-size: 3rem;
+    font-size: 1.4rem;
 }
 #storyDescription{
     text-align: center;
-    font-size: 1.6rem;
+    font-size: 1rem;
+    padding-bottom: 20px;
 }
 div[id^="operator"]{
     width: 75%;
     margin: auto;
 }
-div[id^="operator"] > img{
+
+.operatorImg{
+    margin-left: 2%;
+    margin-right: 3%;
+    margin-bottom: 3%;
+    vertical-align: middle;
+    width: 16%;
+}
+.iterationsTick{
     margin-left: 2%;
     margin-bottom: 3%;
     vertical-align: middle;
+    width: 7%;
+    margin-left: 6%;
 }
 #streak{
     position: fixed;
     bottom: 0;
     right: 0;
-    font-size: 6rem;
+    font-size: 4rem;
     padding: 0 20px 20px 0;
 }
 #test{
-    width: 84%;
+    width: 86%;
     margin: auto;
     margin-top: 10%;
+}
+#preload{
+    display:none;
 }

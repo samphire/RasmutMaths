@@ -2,12 +2,16 @@
 <html>
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no">
     <title>Title</title>
     <script src="js/jquery-3.0.0.min.js"></script>
     <script src="js/testMath.js"></script>
     <script src="js/index.js"></script>
     <script src="js/domData.js"></script>
+    <script src="js/buzz.min.js"></script>
+    <script src="js/sweetalert.min.js"></script>
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/sweetalert.css">
 
 </head>
 <body>
@@ -18,7 +22,7 @@
     </div>
     <hr>
     <div id="cash">
-        <img src="assets/img/bank.png">
+        <img src="assets/img/bank.png" onclick="playBuzz()">
         <table>
             <tr>
                 <td colspan="2">Total Cash Won:</td>
@@ -40,13 +44,15 @@
     <div id="story">My Story</div>
     <div id="storyDescription">description</div>
     <div id="choose">
-        <p>Choose Your Exercise</p>
     </div>
 </section>
 <section id="test">
     <div id="streak">0</div>
 </section>
 
-
+<div id="preload">
+    <img src="assets/img/chonwon.png">
+    <img src="assets/img/2coins50px.png">
+</div>
 </body>
 </html>

@@ -36,18 +36,18 @@ function setWelcomeData() {
     for (i = 0; i < exercisedata.length; i++) {
         var opnum = "<div id='operator" + (i + 1) + "'>";
         if (exercisedata[i].iterations_done == exercisedata[i].iterations) {
-            opnum += '<img src="assets/img/' + exercisedata[i].btn_image + '">';
+            opnum += '<img src="assets/img/' + exercisedata[i].btn_image + '" class="operatorImg">';
         } else {
-            opnum += '<img src="assets/img/' + exercisedata[i].btn_image + '" onclick="makeTest(' + exercisedata[i].num_of_digits + ',' + exercisedata[i].numOfOperands;
+            opnum += '<img src="assets/img/' + exercisedata[i].btn_image + '" class="operatorImg" onclick="makeTest(' + exercisedata[i].num_of_digits + ',' + exercisedata[i].numOfOperands;
             opnum += ',' + exercisedata[i].operatorid + ',' + exercisedata[i].num_of_qns + ',' + exercisedata[i].exerciseid;
             opnum +=  ',' + exercisedata[i].iterations_done + ', '+ i +')">';
         }
         var iterations = parseInt(exercisedata[i].iterations);
         for (var j = 0; j < iterations; j++) {
             if (j < exercisedata[i].iterations_done) {
-                opnum += '<img src="assets/img/tick2.png">';
+                opnum += '<img src="assets/img/tick2.png" class="iterationsTick">';
             } else {
-                opnum += '<img src="assets/img/tick2placeholder.png">';
+                opnum += '<img src="assets/img/tick2placeholder.png" class="iterationsTick">';
             }
         }
         $("#choose").append(opnum);
