@@ -88,19 +88,12 @@ div[id^="operator"]{
     width: 16%;
 }
 .iterationsTick{
-    margin-left: 2%;
     margin-bottom: 3%;
     vertical-align: middle;
     width: 7%;
     margin-left: 6%;
 }
-#streak{
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    font-size: 4rem;
-    padding: 0 20px 20px 0;
-}
+
 #test{
     width: 86%;
     margin: auto;

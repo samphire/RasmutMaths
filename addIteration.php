@@ -1,5 +1,5 @@
 <?php
-$conn = mysqli_connect("127.0.0.1", "root", "canal", "sammath") or die("cannot connect");
+$conn = mysqli_connect("127.0.0.1", "root", "admin", "sammath") or die("cannot connect");
 
 $sql = "UPDATE tbl_scores SET tbl_scores.iterations_done=" . $_GET['newiteration'] .
 " WHERE tbl_scores.user=". $_GET['user'] .

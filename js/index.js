@@ -3,24 +3,31 @@
  */
 
 var sound, sound2, sound3, sound4, sound5, sound6;
+
 function playBuzz() {
     sound.play();
 }
+
 function soundWrong() {
     sound2.play();
 }
-function soundRight(){
+
+function soundRight() {
     sound3.play();
 }
-function soundLevelUp(){
+
+function soundLevelUp() {
     sound4.play();
 }
-function soundStoryDone(){
+
+function soundStoryDone() {
     sound5.play();
 }
-function soundPerfect(){
+
+function soundPerfect() {
     sound6.play();
 }
+
 $(document).ready(function () {
     sound = new buzz.sound("assets/sound/bells-1-half.mp3");
     sound2 = new buzz.sound("assets/sound/saliva-2.mp3");
@@ -28,16 +35,16 @@ $(document).ready(function () {
     sound4 = new buzz.sound("assets/sound/levelup.mp3");
     sound5 = new buzz.sound("assets/sound/storydone.mp3");
     sound6 = new buzz.sound("assets/sound/perfect.mp3");
-    fetchData();
+    fetchData(4); // 4 is Tiffany
     $('#test').hide();
 });
 
-function fetchData() {
+function fetchData(userid) {
     $.ajax({
-        url: 'data.php',
+        url: 'data.php?userid=' + userid,
         datatype: 'json',
         success: function (data) {
-            // alert(data);
+            console.log(data);
             var myData = (JSON.parse(data));
             welcomedata = myData.allData[0].welcomeData[0];
             exercisedata = myData.allData[1].exerciseData;
@@ -55,20 +62,24 @@ function fetchData() {
         }
     });
 }
+
 // user information
 var welcomedata, exercisedata;
 var chosenUser, chosenStory, chosenStoryId, avatar_lvl, perfects, cash_won, cash_paid;
 // exercise information
-var exId, itDone, exIndex;
+var exId, itDone, exIndex, btnImage;
 var a, b, c;
 var numberOfQuestions;
 var streak = 0;
 
-function makeTest(numDig, numOp, op, numq, exid, itdone, exindex) { //Number of digits in the operands, number of operands, operator, number of questions
-    exId = exid;
+function makeTest(numDig, numOp, op, numq, exid, itdone, exindex, btnImage) { // Number of digits in the operands, number of operands, operator, number of questions,
+    exId = exid;                                                              // exercise id, iterations done, array index of exercise, btnImage ( for times tables)
     itDone = itdone;
     exIndex = exindex;
     numberOfQuestions = numq;
+    let timesTableOp = 0;
+    let opArr = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+    opArr.sort(() => Math.random() - 0.5);
     var operands = new Array(numOp);
     var newElement, newTextNode, opChar, answer;
     var place = document.getElementById("test");
@@ -85,11 +96,18 @@ function makeTest(numDig, numOp, op, numq, exid, itdone, exindex) { //Number of 
         case 4:
             opChar = "/";
             break;
+        case 5: // THIS IS FOR TIMES TABLES MULTIPLY
+            opChar = "*"
+            break;
+        case 6: // THIS IS FOR TIMES TABLES DIVIDE
+            opChar = "/"
+            break;
     }
     for (var i = 0; i < numq; i++) {
         var plusAns = 0;
         var minAns = 0;
         var timAns = 0;
+
         var divAns = 0;
 
         switch (op) {
@@ -104,6 +122,13 @@ function makeTest(numDig, numOp, op, numq, exid, itdone, exindex) { //Number of 
                 break;
             case 4:
                 operands = getDivOperands(numDig, numOp);
+                break;
+            case 5:
+                operands = getTimesTableOperandsMultiply(numDig, numOp, btnImage, opArr[timesTableOp]);
+                timesTableOp = timesTableOp < 10 ? timesTableOp += 1 : 2;
+                break;
+            case 6:
+                operands = getTimesTableOperandsDivide(numDig, numOp, btnImage);
                 break;
         }
 
@@ -152,6 +177,12 @@ function makeTest(numDig, numOp, op, numq, exid, itdone, exindex) { //Number of 
             case 4: // divide
                 answer = divAns;
                 break;
+            case 5: // multiply times table
+                answer = timAns;
+                break;
+            case 6: // divide times table
+                answer = divAns;
+                break;
         }
         newElement.setAttribute('data-result', answer);
         newElement.addEventListener("keydown", checkResult);
@@ -160,6 +191,7 @@ function makeTest(numDig, numOp, op, numq, exid, itdone, exindex) { //Number of 
         $('#welcome').hide();
         $('#test').show();
         $('input:first-of-type').focus();
+        window.scrollBy(0, 0 - window.pageYOffset);
     }
 }
 
@@ -169,14 +201,9 @@ function checkResult(event) {
             this.style.backgroundColor = "rgba(10,255,10,0.5)";
             streak += 1;
             soundRight();
-            if (streak === 20) {
-                document.body.innerHTML = "<h1>Oh Yeah!</h1>";
-            }
-            document.getElementById("streak").innerText = streak;
         } else {
             streak = 0;
             this.style.backgroundColor = "rgba(255,10,10,0.5)";
-            document.getElementById("streak").innerText = streak;
             soundWrong();
             quitExercise();
             return;
@@ -184,9 +211,20 @@ function checkResult(event) {
         var nextQ = parseInt(this.id.slice(5)) + 1;
         if (nextQ <= numberOfQuestions) {
             document.getElementById('input' + nextQ).focus();
+            swal({
+                title: "" + streak,
+                text: "",
+                timer: 1000,
+                showConfirmButton: false
+            });
+            var swScroll = window.pageYOffset + 260;
+            var topVal = "" + swScroll + "px";
+            $(".sweet-alert").css({"top": topVal, "width": "30%", "left": "31%", "height": "3.4rem"});
+            $(".sweet-overlay").css("height", "3000px");
         } else {
             //Perfect?
             if (streak === numberOfQuestions) {
+                $(".sweet-alert").css({"top": "", "width": "", "left": "", "height": ""});
                 perfectTest();
             } else {
                 swal('oh dear. Try again!');
@@ -199,8 +237,7 @@ function checkResult(event) {
 function quitExercise() {
     //Finish exercise
     streak = 0;
-    $("#test").children().not("#streak").remove();
-    $("#streak").text(0);
+    $("#test").children().remove();
     $('#test').hide();
     $('#welcome').show();
 }
@@ -261,7 +298,7 @@ function perfectTest() {
     myUrl += "&newperf=" + newPerf + "&newav=" + newAv + "&newcash=" + newCash;
     exercisedata[exIndex].iterations_done = itDone + 1;
     setWelcomeData();
-    // alert (myUrl);
+    console.log(myUrl);
     $.ajax({
         url: myUrl,
         success: function (data) {

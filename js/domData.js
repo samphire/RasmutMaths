@@ -40,7 +40,7 @@ function setWelcomeData() {
         } else {
             opnum += '<img src="assets/img/' + exercisedata[i].btn_image + '" class="operatorImg" onclick="makeTest(' + exercisedata[i].num_of_digits + ',' + exercisedata[i].numOfOperands;
             opnum += ',' + exercisedata[i].operatorid + ',' + exercisedata[i].num_of_qns + ',' + exercisedata[i].exerciseid;
-            opnum +=  ',' + exercisedata[i].iterations_done + ', '+ i +')">';
+            opnum +=  ',' + exercisedata[i].iterations_done + ', '+ i +',\'' + exercisedata[i].btn_image + '\')">';
         }
         var iterations = parseInt(exercisedata[i].iterations);
         for (var j = 0; j < iterations; j++) {

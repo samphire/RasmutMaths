@@ -1,12 +1,19 @@
 /**
  * Created by matthew on 7/21/2016.
+ * Updated by matthew in October 2020.
  */
 
 function getPlusOperands(numDig, numOp) {
     var operands = new Array(numOp);
-    for (var a = 0; a < numOp; a++) {
-        operands[a] = Math.floor(Math.random() * Math.pow(10, numDig));
-    }
+    var myNum;
+    do {
+        for (var a = 0; a < numOp; a++) {
+            do {
+                myNum = Math.floor(Math.random() * Math.pow(10, numDig));
+            } while (myNum < 1);
+            operands[a] = myNum
+        }
+    } while (operands[0] === operands[1]);
     return operands;
 }
 
@@ -25,8 +32,12 @@ function getMinusOperands(numDig, numOp) {
             var newnumDig;
             for (var c = 1; c < numOp; c++) {
                 newnumDig = Math.floor(Math.random() * 10) % 2 === 0 ? numDig : numDig - 1; // digit length is random
-                randomNum = Math.random();
-                operands[c] = Math.floor(randomNum * Math.pow(10, newnumDig));
+                newnumDig = newnumDig === 0 ? 1 : newnumDig // must be at least 1
+                do {
+                    randomNum = Math.random();
+                    operands[c] = Math.floor(randomNum * Math.pow(10, newnumDig));
+                }
+                while (operands[c] < 1);
             }
         } else {
             randomNum = Math.random();
@@ -47,10 +58,19 @@ function getMinusOperands(numDig, numOp) {
 function getTimesOperands(numDig, numOp) {
     var operands = new Array(numOp);
     do {
-        for (var a = 0; a < numOp; a++) { // making operands
+        operands[0] = Math.floor(Math.random() * 10);
+    } while (operands[0] < 2);
+    do {
+        operands[1] = Math.floor(Math.random() * Math.pow(10, numDig));
+    } while (operands[1] < 2);
+
+    if (numOp > 2) {
+        for (var a = 1; a < numOp; a++) { // making operands
             operands[a] = Math.floor(Math.random() * Math.pow(10, numDig));
+            operands[a] = operands[a] > 1 ? operands[a] : Math.floor(Math.random() * Math.pow(10, numDig)) + 1;
         }
-    } while (operands[1] > 10 || operands[1] < 2);
+    }
+
     return operands;
 }
 
@@ -61,5 +81,22 @@ function getDivOperands(numDig, numOp) {
         operands[1] = Math.floor(Math.random() * Math.pow(10, 1));
         operands[0] = operands[1] * Math.floor(Math.random() * Math.pow(10, numDig));
     } while (operands[0] < 1 || operands[1] < 2 || operands[0] === operands[1]);
+    return operands;
+}
+
+
+function getTimesTableOperandsMultiply(numDig, numOp, btnImage, timesTableOp) {
+    var operands = new Array(numOp);
+
+    // operands[0] = Math.floor(Math.random() * 10) + 2;
+    operands[0] = timesTableOp;
+    operands[1] = parseInt(btnImage.substr(0, btnImage.length - 4));
+
+    return operands;
+}
+
+
+function getTimesTableOperandsDivide(numDig, numOp, btnImage) {
+    var operands = new Array(numOp);
     return operands;
 }

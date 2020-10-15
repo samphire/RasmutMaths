@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="b62c609a-a563-45c5-b1b1-4911e48df929" name="notborder sammath" url="http://notborder.org/sammath">
+        <fileTransfer rootFolder="/var/www/html/sammath" accessType="SFTP" host="notborder.org" port="22" sshConfigId="a489df4b-d1b0-40df-a37b-a8e78318c89f" sshConfig="notborder sammath" keyPair="true" username="ec2-user">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+      <webServer id="554320a9-62f4-4147-b40a-67f3c4c2e556" name="TiffMath" url="http://notborder.org">
+        <fileTransfer rootFolder="/var/www/html/" accessType="SFTP" host="notborder.org" port="22" sshConfigId="a489df4b-d1b0-40df-a37b-a8e78318c89f" sshConfig="notborder sammath" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
