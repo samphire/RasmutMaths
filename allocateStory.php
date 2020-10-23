@@ -1,15 +1,17 @@
 <?php
 $conn = mysqli_connect("127.0.0.1", "root", "admin", "sammath") or die("cannot connect");
-/*$sql="SELECT tbl_user.*, tbl_user_has_tbl_story.avatar_lvl, tbl_user_has_tbl_story.perfects, tbl_user_has_tbl_story.cash_won, tbl_user_has_tbl_story.cash_paid, tbl_story.name AS story_name, tbl_story.description
-      FROM (tbl_user_has_tbl_story INNER JOIN tbl_story ON tbl_user_has_tbl_story.tbl_story_id = tbl_story.id) INNER JOIN tbl_user ON tbl_user_has_tbl_story.tbl_user_id = tbl_user.id
-      WHERE tbl_user.id=".$_GET['userid'];
-  */
 
   $sql="SELECT tbl_user.*, tbl_user_has_tbl_story.avatar_lvl, tbl_user_has_tbl_story.perfects, tbl_user_has_tbl_story.cash_won, tbl_user_has_tbl_story.cash_paid, tbl_story.name AS story_name, tbl_story.description, tbl_avatars.name AS avatar_name
               FROM (tbl_user_has_tbl_story INNER JOIN tbl_story ON tbl_user_has_tbl_story.tbl_story_id = tbl_story.id)
               INNER JOIN tbl_user ON tbl_user_has_tbl_story.tbl_user_id = tbl_user.id
               INNER JOIN tbl_avatars ON tbl_avatars.id = tbl_user_has_tbl_story.tbl_avatars_id
               WHERE tbl_user.id=".$_GET['userid'];
+
+$sql = "INSERT INTO `sammath`.`tbl_user_has_tbl_story`
+        (`tbl_user_id`, `tbl_story_id`, `avatar_lvl`, `perfects`, `cash_won`, `cash_paid`, `tbl_avatars_id`)
+        VALUES ('6', '5', '66', '66', '66', '66', '66');
+
+
 
 $result1=mysqli_query($conn, $sql);
 

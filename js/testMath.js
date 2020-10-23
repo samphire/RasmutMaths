@@ -3,6 +3,8 @@
  * Updated by matthew in October 2020.
  */
 
+var timesTableNumber = 0;
+
 function getPlusOperands(numDig, numOp) {
     var operands = new Array(numOp);
     var myNum;
@@ -86,17 +88,65 @@ function getDivOperands(numDig, numOp) {
 
 
 function getTimesTableOperandsMultiply(numDig, numOp, btnImage, timesTableOp) {
+    timesTableNumber = parseInt(btnImage.substr(0, btnImage.length - 4));
     var operands = new Array(numOp);
 
     // operands[0] = Math.floor(Math.random() * 10) + 2;
     operands[0] = timesTableOp;
-    operands[1] = parseInt(btnImage.substr(0, btnImage.length - 4));
+    operands[1] = timesTableNumber;
 
     return operands;
 }
 
 
-function getTimesTableOperandsDivide(numDig, numOp, btnImage) {
+function getTimesTableOperandsDivide(numDig, numOp, btnImage, timesTableOp) {
+    timesTableNumber = parseInt(btnImage.substr(0, btnImage.length - 4));
     var operands = new Array(numOp);
+    let x = timesTableNumber;
+    operands[0] = timesTableOp * x;
+    operands[1] = x;
     return operands;
+}
+
+
+// ####### Stopwatch Functions #######
+
+function timeToString(time) {
+    let diffInHrs = time / 3600000;
+    let hh = Math.floor(diffInHrs);
+
+    let diffInMin = (diffInHrs - hh) * 60;
+    let mm = Math.floor(diffInMin);
+
+    let diffInSec = (diffInMin - mm) * 60;
+    let ss = Math.floor(diffInSec);
+
+    let formattedMM = mm.toString().padStart(1, "0");
+    let formattedSS = ss.toString().padStart(2, "0");
+    avgTime = elapsedTime / numberOfQuestions;
+    return `${formattedMM}:${formattedSS}`;
+}
+
+// Declare variables to use in our functions below
+
+let startTime;
+let elapsedTime = 0;
+let timerInterval;
+let avgTime = 10;
+
+// Create function to modify innerHTML
+
+function print(txt) {
+    document.getElementById("display").innerHTML = txt;
+}
+
+// Create "start", "pause" and "reset" functions
+
+function start() {
+    elapsedTime = 0;
+    startTime = Date.now() - elapsedTime;
+    timerInterval = setInterval(function printTime() {
+        elapsedTime = Date.now() - startTime;
+        print(timeToString(elapsedTime));
+    }, 1000);
 }

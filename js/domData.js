@@ -13,16 +13,16 @@ function setWelcomeData() {
     // Set Avatar and Perfects
     for (i = 0; i < 5; i++) {
         if (i < perfects) {
-            $("#progress").append('<img src="assets/img/avatars/girl/yona2.png">');
+            $("#progress").append('<img src="assets/img/avatars/yona2.png">');
         } else {
-            $("#progress").append('<img src="assets/img/avatars/girl/yona2placeholder.png">');
+            $("#progress").append('<img src="assets/img/avatars/yona2placeholder.png">');
         }
     }
     for (i = 0; i < 5; i++) {
         if (i < avatar_lvl) {
-            $("#progress").before('<img src="assets/img/avatars/girl/girl' + (i + 1) + '.png">');
+            $("#progress").before('<img src="assets/img/avatars/' + avatar_name + (i + 1) + '.png">');
         } else {
-            $("#progress").before('<img src="assets/img/avatars/girl/girl' + (i + 1) + 'placeholder.png">');
+            $("#progress").before('<img src="assets/img/avatars/' + avatar_name + (i + 1) + 'placeholder.png">');
         }
     }
 
@@ -31,6 +31,10 @@ function setWelcomeData() {
     $("#cash>table tr:nth-of-type(2)>td:nth-of-type(3)").html("&nbsp&nbsp&nbsp" + cash_paid);
     var owed = cash_won - cash_paid;
     $("#cash>table tr:nth-of-type(3)>td:nth-of-type(2)").html("&nbsp&nbsp&nbsp" + owed);
+
+    // Set story information
+    $("#story").html(chosenStory);
+
 
     // Set exercise data
     for (i = 0; i < exercisedata.length; i++) {

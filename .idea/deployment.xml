@@ -5,7 +5,7 @@
       <paths name="TiffMath">
         <serverdata>
           <mappings>
-            <mapping deploy="/tiffmath" local="$PROJECT_DIR$" web="/tiffmath" />
+            <mapping deploy="/scopic/math" local="$PROJECT_DIR$" web="/scopic/math" />
           </mappings>
         </serverdata>
       </paths>

@@ -35,7 +35,7 @@ $(document).ready(function () {
     sound4 = new buzz.sound("assets/sound/levelup.mp3");
     sound5 = new buzz.sound("assets/sound/storydone.mp3");
     sound6 = new buzz.sound("assets/sound/perfect.mp3");
-    fetchData(4); // 4 is Tiffany
+    fetchData(localStorage.getItem("user"));
     $('#test').hide();
 });
 
@@ -55,6 +55,7 @@ function fetchData(userid) {
             perfects = parseInt(welcomedata.perfects);
             cash_won = parseInt(welcomedata.cash_won);
             cash_paid = parseInt(welcomedata.cash_paid);
+            avatar_name = welcomedata.avatar_name;
             setWelcomeData();
         },
         fail: function () {
@@ -62,10 +63,22 @@ function fetchData(userid) {
         }
     });
 }
-
+function postData(userid, number, time){
+    console.log("attempting to post data with userid " + userid);
+    $.ajax({
+        url: 'postTimes.php?userid=' + userid + '&number=' + number + '&time=' + time,
+        success: function (data){
+            console.log("success posting data");
+            console.log(data);
+        },
+        fail: function(){
+            alert('failed to post times table time data');
+        }
+    })
+}
 // user information
 var welcomedata, exercisedata;
-var chosenUser, chosenStory, chosenStoryId, avatar_lvl, perfects, cash_won, cash_paid;
+var chosenUser, chosenStory, chosenStoryId, avatar_lvl, perfects, cash_won, cash_paid, avatar_name;
 // exercise information
 var exId, itDone, exIndex, btnImage;
 var a, b, c;
@@ -83,6 +96,8 @@ function makeTest(numDig, numOp, op, numq, exid, itdone, exindex, btnImage) { //
     var operands = new Array(numOp);
     var newElement, newTextNode, opChar, answer;
     var place = document.getElementById("test");
+    let stopwatchHtml = '<div class="stopwatch"><div class="circle"><span class="time" id="display">0:00</span></div></div>';
+
     switch (op) { // print correct operator
         case 1:
             opChar = "+";
@@ -98,11 +113,14 @@ function makeTest(numDig, numOp, op, numq, exid, itdone, exindex, btnImage) { //
             break;
         case 5: // THIS IS FOR TIMES TABLES MULTIPLY
             opChar = "*"
+            place.insertAdjacentHTML("afterbegin", stopwatchHtml);
             break;
         case 6: // THIS IS FOR TIMES TABLES DIVIDE
             opChar = "/"
+            place.insertAdjacentHTML("afterbegin", stopwatchHtml); // for testing... remove from divide later, not relevant
             break;
     }
+
     for (var i = 0; i < numq; i++) {
         var plusAns = 0;
         var minAns = 0;
@@ -126,9 +144,12 @@ function makeTest(numDig, numOp, op, numq, exid, itdone, exindex, btnImage) { //
             case 5:
                 operands = getTimesTableOperandsMultiply(numDig, numOp, btnImage, opArr[timesTableOp]);
                 timesTableOp = timesTableOp < 10 ? timesTableOp += 1 : 2;
+                start();
                 break;
             case 6:
-                operands = getTimesTableOperandsDivide(numDig, numOp, btnImage);
+                operands = getTimesTableOperandsDivide(numDig, numOp, btnImage, opArr[timesTableOp]);
+                timesTableOp = timesTableOp < 10 ? timesTableOp += 1 : 2;
+                start();
                 break;
         }
 
@@ -196,6 +217,7 @@ function makeTest(numDig, numOp, op, numq, exid, itdone, exindex, btnImage) { //
 }
 
 function checkResult(event) {
+    clearInterval(timerInterval);
     if (event.keyCode === 13) {
         if (this.getAttribute('data-result') === this.value) {
             this.style.backgroundColor = "rgba(10,255,10,0.5)";
@@ -243,10 +265,12 @@ function quitExercise() {
 }
 
 function perfectTest() {
+    // alert("average time per question is: " + Math.floor(avgTime));
     soundPerfect();
+    postData(chosenUser, timesTableNumber, Math.floor(avgTime));
     swal({
         title: welcomedata.name,
-        text: "Perfect Score!\nYou are a god of Maths!\nYour reward is 100 won!",
+        text: "Perfect Score!\nYou are a god of Maths!\nYour reward is 50 won!",
         imageSize: "100x100",
         timer: 4000,
         showConfirmButton: false,
@@ -255,7 +279,7 @@ function perfectTest() {
 
     var newPerf = perfects;
     var newAv = avatar_lvl;
-    var newCash = cash_won + 100;
+    var newCash = cash_won + 50;
     if (parseInt(welcomedata.perfects) < 4) {
         perfects += 1;
         welcomedata.perfects = perfects;

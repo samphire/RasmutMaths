@@ -19,16 +19,54 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f09574ad-bbf7-41df-a822-bc1c3e8981d0" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sshConfigs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/webServers.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="f09574ad-bbf7-41df-a822-bc1c3e8981d0" name="Default" comment="Added Times Table Functionality">
+      <change afterPath="$PROJECT_DIR$/allocateStory.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/img/avatars/boy1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/img/avatars/boy1placeholder.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/img/avatars/boy2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/img/avatars/boy2placeholder.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/img/avatars/boy3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/img/avatars/boy3placeholder.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/img/avatars/boy4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/img/avatars/boy4placeholder.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/img/avatars/boy5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/img/avatars/boy5placeholder.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/img/avatars/eddie1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/img/avatars/eddie1placeholder.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/img/avatars/eddie2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/img/avatars/eddie2placeholder.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/img/avatars/eddie3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/img/avatars/eddie3placeholder.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/img/avatars/eddie4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/img/avatars/eddie4placeholder.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/img/avatars/eddie5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/img/avatars/eddie5placeholder.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/img/avatars/nicky1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/img/avatars/nicky1placeholder.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/img/avatars/nicky2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/img/avatars/nicky2placeholder.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/img/avatars/nicky3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/img/avatars/nicky3placeholder.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/img/avatars/nicky4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/img/avatars/nicky4placeholder.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/img/avatars/nicky5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/img/avatars/nicky5placeholder.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/postTimes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addIteration.php" beforeDir="false" afterPath="$PROJECT_DIR$/addIteration.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/avatars/girl/girl1.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/avatars/girl1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/avatars/girl/girl1placeholder.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/avatars/girl1placeholder.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/avatars/girl/girl2.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/avatars/girl2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/avatars/girl/girl2placeholder.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/avatars/girl2placeholder.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/avatars/girl/girl3.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/avatars/girl3.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/avatars/girl/girl3placeholder.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/avatars/girl3placeholder.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/avatars/girl/girl4.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/avatars/girl4.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/avatars/girl/girl4placeholder.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/avatars/girl4placeholder.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/avatars/girl/girl5.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/avatars/girl5.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/avatars/girl/girl5placeholder.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/avatars/girl5placeholder.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/avatars/girl/yona2.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/avatars/yona2.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/img/avatars/girl/yona2placeholder.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/avatars/yona2placeholder.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/sweetalert.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/sweetalert.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data.php" beforeDir="false" afterPath="$PROJECT_DIR$/data.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/domData.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/domData.js" afterDir="false" />
@@ -67,12 +105,6 @@
     <other-services-enabled>true</other-services-enabled>
     <auto-save>true</auto-save>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="744" />
-  </component>
   <component name="ProjectId" id="1iuBphGJNDIfrp9UMJCeLSYhpBM" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -82,6 +114,7 @@
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
@@ -90,22 +123,24 @@
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/assets/img/avatars" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\oakle\WebstormProjects\RasmutMaths\assets\img\avatars" />
       <recent name="C:\Users\matthew\WebstormProjects\RasmutMaths\css" />
       <recent name="C:\Users\matthew\WebstormProjects\RasmutMaths\assets\sound" />
       <recent name="C:\Users\matthew\WebstormProjects\RasmutMaths\js" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\oakle\WebstormProjects\RasmutMaths\assets\img\avatars" />
+      <recent name="C:\Users\oakle\WebstormProjects\RasmutMaths\assets\img\avatars\boy" />
       <recent name="C:\Users\matthew\WebstormProjects\RasmutMaths\assets\img" />
       <recent name="C:\Users\matthew\WebstormProjects\RasmutMaths\assets\sound" />
       <recent name="C:\Users\matthew\WebstormProjects\RasmutMaths\assets\img\avatars\girl" />
-      <recent name="C:\Users\matthew\WebstormProjects\RasmutMaths\js" />
     </key>
   </component>
   <component name="RunManager" selected="JavaScript Debug.index.html (1)">
@@ -186,7 +221,11 @@
       <workItem from="1470900495050" duration="648000" />
       <workItem from="1472729782942" duration="47000" />
       <workItem from="1515585407324" duration="51000" />
-      <workItem from="1602747785082" duration="1685000" />
+      <workItem from="1602747785082" duration="2097000" />
+      <workItem from="1603081548868" duration="10632000" />
+      <workItem from="1603163464995" duration="3027000" />
+      <workItem from="1603263713313" duration="8719000" />
+      <workItem from="1603337407145" duration="790000" />
     </task>
     <task id="LOCAL-00001" summary="First Initial commit">
       <created>1468977878930</created>
@@ -216,7 +255,14 @@
       <option name="project" value="LOCAL" />
       <updated>1469182419831</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Added Times Table Functionality">
+      <created>1602749791823</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1602749791823</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TodoView">
@@ -241,6 +287,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -258,21 +305,22 @@
     <MESSAGE value="Finished all the math function. Phew!" />
     <MESSAGE value="All Functions Done!" />
     <MESSAGE value="Added Bells and Whistles&#10;Problem with sweetalert, cannot get alert to remain on page." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Bells and Whistles&#10;Problem with sweetalert, cannot get alert to remain on page." />
+    <MESSAGE value="Added Times Table Functionality" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Times Table Functionality" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="690" y="256" key="#Deployment" timestamp="1602748122593">
+    <state x="690" y="256" key="#Deployment" timestamp="1603087229587">
       <screen x="0" y="0" width="2194" height="1194" />
     </state>
-    <state x="690" y="256" key="#Deployment/0.0.2194.1194/-1920.454.1920.1040@0.0.2194.1194" timestamp="1602748122593" />
+    <state x="690" y="256" key="#Deployment/0.0.2194.1194/-1920.454.1920.1040@0.0.2194.1194" timestamp="1603087229587" />
     <state x="674" y="243" key="#SSH_Configurations" timestamp="1602747904053">
       <screen x="0" y="0" width="2194" height="1194" />
     </state>
     <state x="674" y="243" key="#SSH_Configurations/0.0.2194.1194/-1920.454.1920.1040@0.0.2194.1194" timestamp="1602747904053" />
-    <state x="93" y="93" width="2008" height="1008" key="DiffContextDialog" timestamp="1602749484020">
+    <state x="93" y="93" width="2008" height="1008" key="DiffContextDialog" timestamp="1603089025797">
       <screen x="0" y="0" width="2194" height="1194" />
     </state>
-    <state x="93" y="93" width="2008" height="1008" key="DiffContextDialog/0.0.2194.1194/-1920.454.1920.1040@0.0.2194.1194" timestamp="1602749484020" />
+    <state x="93" y="93" width="2008" height="1008" key="DiffContextDialog/0.0.2194.1194/-1920.454.1920.1040@0.0.2194.1194" timestamp="1603089025797" />
     <state x="113" y="142" width="2008" height="1008" maximized="true" key="DirDiffDialog" timestamp="1602749484020">
       <screen x="0" y="0" width="2194" height="1194" />
     </state>
