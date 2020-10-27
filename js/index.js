@@ -39,7 +39,9 @@ $(document).ready(function () {
     $('#test').hide();
 });
 
+
 function fetchData(userid) {
+    console.log("user is " + userid);
     $.ajax({
         url: 'data.php?userid=' + userid,
         datatype: 'json',
@@ -53,7 +55,7 @@ function fetchData(userid) {
             chosenStoryId = exercisedata[0].storyid;
             avatar_lvl = parseInt(welcomedata.avatar_lvl);
             perfects = parseInt(welcomedata.perfects);
-            cash_won = parseInt(welcomedata.cash_won);
+            cash_won = parseInt(welcomedata.cash_earned);
             cash_paid = parseInt(welcomedata.cash_paid);
             avatar_name = welcomedata.avatar_name;
             setWelcomeData();
@@ -63,33 +65,38 @@ function fetchData(userid) {
         }
     });
 }
-function postData(userid, number, time){
+
+function postData(userid, number, time) {
     console.log("attempting to post data with userid " + userid);
     $.ajax({
-        url: 'postTimes.php?userid=' + userid + '&number=' + number + '&time=' + time,
-        success: function (data){
+        url: 'postTimes.php?userid=' + userid + '&number=' + number + '&time=' + time + '&op=' + operator + '&timelimit=' + timeLimit,
+        success: function (data) {
             console.log("success posting data");
             console.log(data);
         },
-        fail: function(){
+        fail: function () {
             alert('failed to post times table time data');
         }
     })
 }
+
 // user information
 var welcomedata, exercisedata;
 var chosenUser, chosenStory, chosenStoryId, avatar_lvl, perfects, cash_won, cash_paid, avatar_name;
 // exercise information
-var exId, itDone, exIndex, btnImage;
+var exId, itDone, exIndex, btnImage, timeLimit, operator;
 var a, b, c;
 var numberOfQuestions;
 var streak = 0;
 
-function makeTest(numDig, numOp, op, numq, exid, itdone, exindex, btnImage) { // Number of digits in the operands, number of operands, operator, number of questions,
+function makeTest(numDig, numOp, op, numq, exid, itdone, exindex, btnimage, timelimit) { // Number of digits in the operands, number of operands, operator, number of questions,
     exId = exid;                                                              // exercise id, iterations done, array index of exercise, btnImage ( for times tables)
     itDone = itdone;
     exIndex = exindex;
     numberOfQuestions = numq;
+    btnImage = btnimage;
+    timeLimit = timelimit;
+    operator = op;
     let timesTableOp = 0;
     let opArr = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
     opArr.sort(() => Math.random() - 0.5);
@@ -111,13 +118,17 @@ function makeTest(numDig, numOp, op, numq, exid, itdone, exindex, btnImage) { //
         case 4:
             opChar = "/";
             break;
-        case 5: // THIS IS FOR TIMES TABLES MULTIPLY
+        case 5:
+        case 7:
+        case 9:// THIS IS FOR TIMES TABLES MULTIPLY
+            opChar = "/"
+            break;
+        case 6:
+        case 8:
+        case 10:
+        case 12:// THIS IS FOR TIMES TABLES DIVIDE
             opChar = "*"
             place.insertAdjacentHTML("afterbegin", stopwatchHtml);
-            break;
-        case 6: // THIS IS FOR TIMES TABLES DIVIDE
-            opChar = "/"
-            place.insertAdjacentHTML("afterbegin", stopwatchHtml); // for testing... remove from divide later, not relevant
             break;
     }
 
@@ -125,7 +136,6 @@ function makeTest(numDig, numOp, op, numq, exid, itdone, exindex, btnImage) { //
         var plusAns = 0;
         var minAns = 0;
         var timAns = 0;
-
         var divAns = 0;
 
         switch (op) {
@@ -142,12 +152,17 @@ function makeTest(numDig, numOp, op, numq, exid, itdone, exindex, btnImage) { //
                 operands = getDivOperands(numDig, numOp);
                 break;
             case 5:
-                operands = getTimesTableOperandsMultiply(numDig, numOp, btnImage, opArr[timesTableOp]);
+            case 7:
+            case 9:
+                operands = getTimesTableOperandsDivide(numDig, numOp, btnImage, opArr[timesTableOp]);
                 timesTableOp = timesTableOp < 10 ? timesTableOp += 1 : 2;
                 start();
                 break;
             case 6:
-                operands = getTimesTableOperandsDivide(numDig, numOp, btnImage, opArr[timesTableOp]);
+            case 8:
+            case 10:
+            case 12:
+                operands = getTimesTableOperandsMultiply(numDig, numOp, btnImage, opArr[timesTableOp]);
                 timesTableOp = timesTableOp < 10 ? timesTableOp += 1 : 2;
                 start();
                 break;
@@ -198,11 +213,16 @@ function makeTest(numDig, numOp, op, numq, exid, itdone, exindex, btnImage) { //
             case 4: // divide
                 answer = divAns;
                 break;
-            case 5: // multiply times table
-                answer = timAns;
-                break;
-            case 6: // divide times table
+            case 5:
+            case 7:
+            case 9: // divide times table
                 answer = divAns;
+                break;
+            case 6:
+            case 8:
+            case 10:
+            case 12: // divide times table
+                answer = timAns;
                 break;
         }
         newElement.setAttribute('data-result', answer);
@@ -217,7 +237,7 @@ function makeTest(numDig, numOp, op, numq, exid, itdone, exindex, btnImage) { //
 }
 
 function checkResult(event) {
-    clearInterval(timerInterval);
+    clearInterval(timerInterval); // why is this here?
     if (event.keyCode === 13) {
         if (this.getAttribute('data-result') === this.value) {
             this.style.backgroundColor = "rgba(10,255,10,0.5)";
@@ -245,11 +265,30 @@ function checkResult(event) {
             $(".sweet-overlay").css("height", "3000px");
         } else {
             //Perfect?
-            if (streak === numberOfQuestions) {
+            console.log("avgTime is: " + avgTime);
+            console.log("time limit is: " + timeLimit);
+            let passTimer = 2 > 1;
+            if (timeLimit != null) {
+                passTimer = Math.floor(avgTime) < timeLimit;
+            }
+            console.log("passTimer is: " + passTimer);
+            console.log("operator is: " + operator);
+            if (streak === numberOfQuestions && passTimer) {
                 $(".sweet-alert").css({"top": "", "width": "", "left": "", "height": ""});
                 perfectTest();
             } else {
-                swal('oh dear. Try again!');
+                $(".sweet-alert").css({"top": "", "width": "", "left": "", "height": ""});
+                if (!passTimer) {
+                    swal({
+                        title: welcomedata.name,
+                        text: "You failed\nYour average response time was " + Math.floor(avgTime) + "\nThe time limit was " + timeLimit,
+                        imageSize: "100x100",
+                        timer: 4000,
+                        showConfirmButton: false,
+                        imageUrl: "assets/img/coin2.png"
+                    });
+                    playBuzz();
+                }
             }
             quitExercise();
         }
@@ -267,7 +306,9 @@ function quitExercise() {
 function perfectTest() {
     // alert("average time per question is: " + Math.floor(avgTime));
     soundPerfect();
-    postData(chosenUser, timesTableNumber, Math.floor(avgTime));
+    if (operator === 6 || operator === 8 || operator === 10 || operator === 12) {  // only if you are doing times table
+        postData(chosenUser, timesTableNumber, Math.floor(avgTime));
+    }
     swal({
         title: welcomedata.name,
         text: "Perfect Score!\nYou are a god of Maths!\nYour reward is 50 won!",
@@ -302,14 +343,14 @@ function perfectTest() {
         } else {
             swal({
                 title: welcomedata.name,
-                text: "Congratulations! Your avatar is upgraded!\n\nYou win bonus money: 200 won!!!",
+                text: "Congratulations! Your avatar is upgraded!\n\nYou win bonus money: 100 won!!!",
                 imageSize: "150x150",
                 timer: 4000,
                 showConfirmButton: false,
                 imageUrl: "assets/img/2coins50px.png"
             });
             soundLevelUp();
-            newCash += 200;
+            newCash += 100;
         }
         avatar_lvl += 1;
         newAv = avatar_lvl;
@@ -317,15 +358,38 @@ function perfectTest() {
     }
     cash_won = newCash;
     welcomedata.cash_won = cash_won;
-
-    var myUrl = "addIteration.php?user=" + chosenUser + "&storyid=" + chosenStoryId + "&exerciseid=" + exId + "&newiteration=" + (parseInt(itDone) + 1);
-    myUrl += "&newperf=" + newPerf + "&newav=" + newAv + "&newcash=" + newCash;
     exercisedata[exIndex].iterations_done = itDone + 1;
     setWelcomeData();
+    // MyIterationsDone += 1;
+    console.log(MyIterationsDone);
+    var myUrl = "addIteration.php?user=" + chosenUser + "&storyid=" + chosenStoryId + "&exerciseid=" + exId + "&newiteration=" + (parseInt(itDone) + 1);
+    myUrl += "&newperf=" + newPerf + "&newav=" + newAv + "&newcash=" + newCash;
+    if (MyIterationsDone === MyIterations) { // Story is complete
+        myUrl += "&story_complete=true";
+    } else {
+        myUrl += "&story_complete=false";
+    }
     console.log(myUrl);
     $.ajax({
         url: myUrl,
         success: function (data) {
+            if (data == 1) {
+                soundStoryDone();
+                newCash += 1000;
+                swal({
+                        title: welcomedata.name,
+                        text: "Well Done! You have completed this story\nGood luck with your new story! Have some reward money: 500 won!!!",
+                        imageSize: "150x150",
+                        timer: 16000,
+                        showConfirmButton: true,
+                        imageUrl: "assets/img/storydone.gif",
+                        confirmButtonText: "Go to Next Story",
+                        closeOnConfirm: false
+                    },
+                    function () {
+                        location.reload();
+                    });
+            }
         },
         fail: function () {
         }

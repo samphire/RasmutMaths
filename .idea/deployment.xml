@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" autoUpload="Always" serverName="TiffMath" createEmptyFolders="true">
+  <component name="PublishConfigData" autoUpload="Always" serverName="localhost" remoteFilesAllowedToDisappearOnAutoupload="false">
     <serverData>
-      <paths name="TiffMath">
+      <paths name="localhost">
         <serverdata>
           <mappings>
-            <mapping deploy="/scopic/math" local="$PROJECT_DIR$" web="/scopic/math" />
+            <mapping deploy="scopic\math" local="$PROJECT_DIR$" web="/scopic/math" />
           </mappings>
         </serverdata>
       </paths>
-      <paths name="notborder sammath">
+      <paths name="notborder">
         <serverdata>
           <mappings>
-            <mapping deploy="/" local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="/scopic/math" local="$PROJECT_DIR$" web="/scopic/math" />
           </mappings>
         </serverdata>
       </paths>

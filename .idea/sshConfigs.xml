@@ -2,9 +2,7 @@
 <project version="4">
   <component name="SshConfigs">
     <configs>
-      <sshConfig host="notborder.org" id="a489df4b-d1b0-40df-a37b-a8e78318c89f" keyPath="C:\Users\oakle\.ssh\matt_linux2.ppk" port="22" customName="notborder sammath" nameFormat="CUSTOM" username="ec2-user">
-        <option name="customName" value="notborder sammath" />
-      </sshConfig>
+      <sshConfig host="notborder.org" id="3fcbb8d6-e9c3-463f-a110-97901baac815" keyPath="C:\Users\oakle\.ssh\matt_linux2.ppk" port="22" nameFormat="DESCRIPTIVE" username="ec2-user" />
     </configs>
   </component>
 </project>

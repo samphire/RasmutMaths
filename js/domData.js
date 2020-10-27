@@ -1,7 +1,12 @@
 /**
  * Created by matthew on 7/20/2016.
  */
+
+var MyIterations, MyIterationsDone;
+
 function setWelcomeData() {
+    MyIterations = 0;
+    MyIterationsDone = 0;
     // Clear existing data
     $("#avatar").children().not("#progress").remove();
     $("#progress").children().remove();
@@ -38,13 +43,15 @@ function setWelcomeData() {
 
     // Set exercise data
     for (i = 0; i < exercisedata.length; i++) {
+        MyIterations += Number(exercisedata[i].iterations);
+        MyIterationsDone += Number(exercisedata[i].iterations_done);
         var opnum = "<div id='operator" + (i + 1) + "'>";
-        if (exercisedata[i].iterations_done == exercisedata[i].iterations) {
+        if (exercisedata[i].iterations_done === exercisedata[i].iterations) {
             opnum += '<img src="assets/img/' + exercisedata[i].btn_image + '" class="operatorImg">';
         } else {
             opnum += '<img src="assets/img/' + exercisedata[i].btn_image + '" class="operatorImg" onclick="makeTest(' + exercisedata[i].num_of_digits + ',' + exercisedata[i].numOfOperands;
             opnum += ',' + exercisedata[i].operatorid + ',' + exercisedata[i].num_of_qns + ',' + exercisedata[i].exerciseid;
-            opnum +=  ',' + exercisedata[i].iterations_done + ', '+ i +',\'' + exercisedata[i].btn_image + '\')">';
+            opnum +=  ',' + exercisedata[i].iterations_done + ', '+ i +',\'' + exercisedata[i].btn_image + '\', ' + exercisedata[i].time_limit + ')">';
         }
         var iterations = parseInt(exercisedata[i].iterations);
         for (var j = 0; j < iterations; j++) {
@@ -56,4 +63,5 @@ function setWelcomeData() {
         }
         $("#choose").append(opnum);
     }
+    console.log("MyIterations: " + MyIterations + "\nMyIterationsDone: " + MyIterationsDone);
 }

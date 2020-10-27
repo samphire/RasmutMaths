@@ -2,15 +2,11 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="b62c609a-a563-45c5-b1b1-4911e48df929" name="notborder sammath" url="http://notborder.org/sammath">
-        <fileTransfer rootFolder="/var/www/html/sammath" accessType="SFTP" host="notborder.org" port="22" sshConfigId="a489df4b-d1b0-40df-a37b-a8e78318c89f" sshConfig="notborder sammath" keyPair="true" username="ec2-user">
-          <advancedOptions>
-            <advancedOptions dataProtectionLevel="Private" />
-          </advancedOptions>
-        </fileTransfer>
+      <webServer id="434c4d37-1613-497f-bdb0-7d36def8ab28" name="localhost" url="http://localhost">
+        <fileTransfer mountedRoot="C:\Apache24\htdocs" accessType="MOUNT" port="0" />
       </webServer>
-      <webServer id="554320a9-62f4-4147-b40a-67f3c4c2e556" name="TiffMath" url="http://notborder.org">
-        <fileTransfer rootFolder="/var/www/html/" accessType="SFTP" host="notborder.org" port="22" sshConfigId="a489df4b-d1b0-40df-a37b-a8e78318c89f" sshConfig="notborder sammath" keyPair="true">
+      <webServer id="3e7a4c63-b735-43ce-a3fb-20e86b193402" name="notborder" url="http://notborder.org">
+        <fileTransfer rootFolder="/var/www/html" accessType="SFTP" host="notborder.org" port="22" sshConfigId="3fcbb8d6-e9c3-463f-a110-97901baac815" sshConfig="ec2-user@notborder.org:22 key" keyPair="true">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
           </advancedOptions>
