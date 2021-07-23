@@ -11,7 +11,7 @@ function setWelcomeData() {
     $("#avatar").children().not("#progress").remove();
     $("#progress").children().remove();
     $("#choose").children().not("p").remove();
-    
+
     var i;
     // Set User Info
     $("#userInfo").text(welcomedata.name);
@@ -39,7 +39,9 @@ function setWelcomeData() {
 
     // Set story information
     $("#story").html(chosenStory);
-
+    if(!exercisedata[0].storyid){
+        $("#story").html("You have no exercise to do. Relax");
+    }
 
     // Set exercise data
     for (i = 0; i < exercisedata.length; i++) {

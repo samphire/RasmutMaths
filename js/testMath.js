@@ -51,7 +51,7 @@ function getMinusOperands(numDig, numOp) {
             operandTotalApartFirst += operands[z];
         }
     }
-    while (operands[0] <= operandTotalApartFirst);
+    while (operands[0] <= operandTotalApartFirst || operands[1] === 0);
 
     return operands;
 }

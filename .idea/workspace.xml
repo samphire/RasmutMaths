@@ -19,36 +19,42 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e1c99163-be11-4ecf-960e-da9161b7b4b7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/assets/img/avatars/ugly1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/avatars/ugly1placeholder.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/avatars/ugly2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/avatars/ugly2placeholder.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/avatars/ugly3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/avatars/ugly3placeholder.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/avatars/ugly4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/avatars/ugly4placeholder.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/avatars/ugly5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/avatars/ugly5placeholder.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/RasmutMaths.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/RasmutMaths.iml" afterDir="false" />
+    <list default="true" id="e1c99163-be11-4ecf-960e-da9161b7b4b7" name="Default Changelist" comment="Absolutely finished.&#10;The only problem is how to deal by messaging with the utter completion of the course. I could do with another sweet alert. Also, need to find out why sweet alert is disappearing early.">
+      <change afterPath="$PROJECT_DIR$/assets/img/danceydog.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/sound/sadtrumpet.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/cute-alert/cute-alert.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/cute-alert/img/error.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/cute-alert/img/info.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/cute-alert/img/question.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/cute-alert/img/success.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/cute-alert/img/warning.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/libs/cute-alert/style.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/sshConfigs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sshConfigs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/webServers.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webServers.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/addIteration.php" beforeDir="false" afterPath="$PROJECT_DIR$/addIteration.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/allocateStory.php" beforeDir="false" afterPath="$PROJECT_DIR$/allocateStory.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data.php" beforeDir="false" afterPath="$PROJECT_DIR$/data.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/domData.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/domData.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/postTimes.php" beforeDir="false" afterPath="$PROJECT_DIR$/postTimes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/testMath.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/testMath.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -60,15 +66,26 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mariadb" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/assets/img/avatars" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/addIteration.php" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\oakle\WebstormProjects\RasmutMaths\assets\img\avatars" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\oakle\OneDrive\Documents\CODE\WebstormProjects\RasmutMaths\libs\cute-alert" />
+      <recent name="C:\Users\oakle\OneDrive\Documents\CODE\WebstormProjects\RasmutMaths\libs" />
+      <recent name="C:\Users\oakle\OneDrive\Documents\CODE\WebstormProjects\RasmutMaths\js" />
+      <recent name="C:\Users\oakle\OneDrive\Documents\CODE\WebstormProjects\RasmutMaths\css" />
+      <recent name="C:\Users\oakle\OneDrive\Documents\CODE\WebstormProjects\RasmutMaths\assets\img" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -81,8 +98,24 @@
       <updated>1603522164405</updated>
       <workItem from="1603522165482" duration="2583000" />
       <workItem from="1603681815228" duration="11688000" />
-      <workItem from="1603773283124" duration="19104000" />
+      <workItem from="1603773283124" duration="19193000" />
+      <workItem from="1603857088661" duration="4716000" />
+      <workItem from="1603872906402" duration="994000" />
+      <workItem from="1604036747612" duration="604000" />
+      <workItem from="1604472302128" duration="4000" />
+      <workItem from="1627009915146" duration="2487000" />
+      <workItem from="1627012578514" duration="332000" />
+      <workItem from="1627012970173" duration="320000" />
+      <workItem from="1627013298773" duration="5425000" />
     </task>
+    <task id="LOCAL-00001" summary="Absolutely finished.&#10;The only problem is how to deal by messaging with the utter completion of the course. I could do with another sweet alert. Also, need to find out why sweet alert is disappearing early.">
+      <created>1603808330274</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1603808330274</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -100,31 +133,8 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
-  <component name="WindowStateProjectService">
-    <state x="690" y="256" key="#Deployment" timestamp="1603523892653">
-      <screen x="0" y="0" width="2194" height="1194" />
-    </state>
-    <state x="690" y="256" key="#Deployment/0.0.2194.1194/-1920.454.1920.1040@0.0.2194.1194" timestamp="1603523892653" />
-    <state x="674" y="243" key="#SSH_Configurations" timestamp="1603522302970">
-      <screen x="0" y="0" width="2194" height="1194" />
-    </state>
-    <state x="674" y="243" key="#SSH_Configurations/0.0.2194.1194/-1920.454.1920.1040@0.0.2194.1194" timestamp="1603522302970" />
-    <state x="93" y="93" width="2008" height="1008" key="DiffContextDialog" timestamp="1603799447466">
-      <screen x="0" y="0" width="2194" height="1194" />
-    </state>
-    <state x="93" y="93" width="2008" height="1008" key="DiffContextDialog/0.0.2194.1194/-1920.454.1920.1040@0.0.2194.1194" timestamp="1603799447466" />
-    <state x="93" y="93" width="2008" height="1008" key="DirDiffDialog" timestamp="1603522737937">
-      <screen x="0" y="0" width="2194" height="1194" />
-    </state>
-    <state x="93" y="93" width="2008" height="1008" key="DirDiffDialog/0.0.2194.1194/-1920.454.1920.1040@0.0.2194.1194" timestamp="1603522737937" />
-    <state x="-1152" y="761" key="FileChooserDialogImpl" timestamp="1603712162526">
-      <screen x="-1920" y="454" width="1920" height="1040" />
-    </state>
-    <state x="-1152" y="761" key="FileChooserDialogImpl/0.0.2194.1194/-1920.454.1920.1040@-1920.454.1920.1040" timestamp="1603712162526" />
-    <state x="878" y="353" key="FileChooserDialogImpl/0.0.2194.1194/-1920.454.1920.1040@0.0.2194.1194" timestamp="1603522636458" />
-    <state x="983" y="328" key="ftp.server.browser" timestamp="1603522346801">
-      <screen x="0" y="0" width="2194" height="1194" />
-    </state>
-    <state x="983" y="328" key="ftp.server.browser/0.0.2194.1194/-1920.454.1920.1040@0.0.2194.1194" timestamp="1603522346801" />
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Absolutely finished.&#10;The only problem is how to deal by messaging with the utter completion of the course. I could do with another sweet alert. Also, need to find out why sweet alert is disappearing early." />
+    <option name="LAST_COMMIT_MESSAGE" value="Absolutely finished.&#10;The only problem is how to deal by messaging with the utter completion of the course. I could do with another sweet alert. Also, need to find out why sweet alert is disappearing early." />
   </component>
 </project>

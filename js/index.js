@@ -2,7 +2,7 @@
  * Created by matthew on 7/7/2016.
  */
 
-var sound, sound2, sound3, sound4, sound5, sound6;
+var sound, sound2, sound3, sound4, sound5, sound6, sound7;
 
 function playBuzz() {
     sound.play();
@@ -28,6 +28,10 @@ function soundPerfect() {
     sound6.play();
 }
 
+function soundSad() {
+    sound7.play();
+}
+
 $(document).ready(function () {
     sound = new buzz.sound("assets/sound/bells-1-half.mp3");
     sound2 = new buzz.sound("assets/sound/saliva-2.mp3");
@@ -35,7 +39,9 @@ $(document).ready(function () {
     sound4 = new buzz.sound("assets/sound/levelup.mp3");
     sound5 = new buzz.sound("assets/sound/storydone.mp3");
     sound6 = new buzz.sound("assets/sound/perfect.mp3");
-    fetchData(localStorage.getItem("user"));
+    sound7 = new buzz.sound("assets/sound/sadtrumpet.mp3");
+    //fetchData(localStorage.getItem("user"));
+    fetchData(2);
     $('#test').hide();
 });
 
@@ -52,13 +58,18 @@ function fetchData(userid) {
             exercisedata = myData.allData[1].exerciseData;
             chosenUser = welcomedata.id;
             chosenStory = welcomedata.story_name;
-            chosenStoryId = exercisedata[0].storyid;
-            avatar_lvl = parseInt(welcomedata.avatar_lvl);
-            perfects = parseInt(welcomedata.perfects);
-            cash_won = parseInt(welcomedata.cash_earned);
-            cash_paid = parseInt(welcomedata.cash_paid);
-            avatar_name = welcomedata.avatar_name;
-            setWelcomeData();
+            try {
+                chosenStoryId = exercisedata[0].storyid;
+            } catch (e) {
+                console.log("no data for exercies");
+            } finally {
+                avatar_lvl = parseInt(welcomedata.avatar_lvl);
+                perfects = parseInt(welcomedata.perfects);
+                cash_won = parseInt(welcomedata.cash_earned);
+                cash_paid = parseInt(welcomedata.cash_paid);
+                avatar_name = welcomedata.avatar_name;
+                setWelcomeData();
+            }
         },
         fail: function () {
             alert('fail');
@@ -253,12 +264,12 @@ function checkResult(event) {
         var nextQ = parseInt(this.id.slice(5)) + 1;
         if (nextQ <= numberOfQuestions) {
             document.getElementById('input' + nextQ).focus();
-            swal({
-                title: "" + streak,
-                text: "",
-                timer: 1000,
-                showConfirmButton: false
-            });
+            // swal({
+            //     title: "" + streak,
+            //     text: "",
+            //     timer: 1000,
+            //     showConfirmButton: false
+            // });
             var swScroll = window.pageYOffset + 260;
             var topVal = "" + swScroll + "px";
             $(".sweet-alert").css({"top": topVal, "width": "30%", "left": "31%", "height": "3.4rem"});
@@ -274,20 +285,26 @@ function checkResult(event) {
             console.log("passTimer is: " + passTimer);
             console.log("operator is: " + operator);
             if (streak === numberOfQuestions && passTimer) {
-                $(".sweet-alert").css({"top": "", "width": "", "left": "", "height": ""});
                 perfectTest();
             } else {
-                $(".sweet-alert").css({"top": "", "width": "", "left": "", "height": ""});
                 if (!passTimer) {
-                    swal({
-                        title: welcomedata.name,
-                        text: "You failed\nYour average response time was " + Math.floor(avgTime) + "\nThe time limit was " + timeLimit,
-                        imageSize: "100x100",
-                        timer: 4000,
-                        showConfirmButton: false,
-                        imageUrl: "assets/img/coin2.png"
-                    });
-                    playBuzz();
+                    console.log("tryingsweealert");
+                    // swal({
+                    //         title: welcomedata.name,
+                    //         text: "You failed\nYour average response time was " + Math.floor(avgTime) + "\nThe time limit was " + timeLimit,
+                    //         imageSize: "100x100",
+                    //         timer: 4000,
+                    //         showConfirmButton: true,
+                    //         imageUrl: "assets/img/coin2.png",
+                    //         closeOnConfirm: false
+                    //     });
+                    cuteAlert({
+                        type: "error",
+                        title: "Sorry",
+                        message: "У вас вышло время",
+                        buttonText: "ㅠㅠ"
+                    })
+                    soundSad();
                 }
             }
             quitExercise();
@@ -298,7 +315,7 @@ function checkResult(event) {
 function quitExercise() {
     //Finish exercise
     streak = 0;
-    $("#test").children().remove();
+    $("#test").children().not(".stopwatch").remove();
     $('#test').hide();
     $('#welcome').show();
 }
@@ -311,7 +328,7 @@ function perfectTest() {
     }
     swal({
         title: welcomedata.name,
-        text: "Perfect Score!\nYou are a god of Maths!\nYour reward is 50 won!",
+        text: "высший балл!\nУ тебя все хорошо!\nВаша награда - ₩50!",
         imageSize: "100x100",
         timer: 4000,
         showConfirmButton: false,
@@ -330,16 +347,16 @@ function perfectTest() {
         welcomedata.perfects = perfects;
         newPerf = 0;
         if (parseInt(welcomedata.avatar_lvl) === 4) {
-            swal({
-                title: welcomedata.name,
-                text: "You have completed the whole STORY!!!\n\nYou win SUPER BONUS 1000 won!!!!!!!!",
-                imageSize: "240x240",
-                timer: 16000,
-                showConfirmButton: false,
-                imageUrl: "assets/img/storydone.gif"
-            });
-            soundStoryDone();
-            newCash += 1000;
+            // swal({
+            //     title: welcomedata.name,
+            //     text: "You have completed the whole STORY!!!\n\nYou win SUPER BONUS 1000 won!!!!!!!!",
+            //     imageSize: "240x240",
+            //     timer: 16000,
+            //     showConfirmButton: false,
+            //     imageUrl: "assets/img/storydone.gif"
+            // });
+            // soundStoryDone();
+            // newCash += 1000;
         } else {
             swal({
                 title: welcomedata.name,
@@ -373,25 +390,46 @@ function perfectTest() {
     $.ajax({
         url: myUrl,
         success: function (data) {
-            if (data == 1) {
+            data = parseInt(data);
+            console.log(data);
+            console.log(typeof data);
+            if (data === 1) {
+                console.warn("Story is complete");
                 soundStoryDone();
                 newCash += 1000;
                 swal({
                         title: welcomedata.name,
-                        text: "Well Done! You have completed this story\nGood luck with your new story! Have some reward money: 500 won!!!",
+                        type: null,
+                        text: "Отличная работа! Вы завершили эту часть. \nУдачи со следующей частью ... Вы получаете 1000 в награду!!!",
                         imageSize: "150x150",
                         timer: 16000,
-                        showConfirmButton: true,
+                        showConfirmButton: false,
                         imageUrl: "assets/img/storydone.gif",
-                        confirmButtonText: "Go to Next Story",
-                        closeOnConfirm: false
+                        closeOnConfirm: false,
+                        closeOnCancel: false
                     },
                     function () {
-                        location.reload();
+                        // location.reload();
                     });
+            }
+            if (data === -1) {
+                console.warn("There are no more tests... everything is complete");
+                soundStoryDone();
+                swal({
+                    title: welcomedata.name,
+                    type: null,
+                    text: "Тестов больше нет...\n Вы ВСЕ прошли!",
+                    imageSize: "150x150",
+                    timer: 16000,
+                    showConfirmButton: false,
+                    imageUrl: "assets/img/danceydog.gif",
+                    closeOnConfirm: false,
+                    closeOnCancel: false
+                });
             }
         },
         fail: function () {
+            console.log("failure in ajax...");
         }
     });
 }

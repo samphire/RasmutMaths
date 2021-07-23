@@ -9,7 +9,7 @@ $conn = mysqli_connect("127.0.0.1", "root", "admin", "sammath") or die("cannot c
 
 $sql = "INSERT INTO `sammath`.`tbl_user_has_tbl_story`
         (`tbl_user_id`, `tbl_story_id`, `avatar_lvl`, `perfects`, `cash_won`, `cash_paid`, `tbl_avatars_id`)
-        VALUES ('6', '5', '66', '66', '66', '66', '66');
+        VALUES ('6', '5', '66', '66', '66', '66', '66')";
 
 
 

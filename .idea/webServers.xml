@@ -5,10 +5,10 @@
       <webServer id="434c4d37-1613-497f-bdb0-7d36def8ab28" name="localhost" url="http://localhost">
         <fileTransfer mountedRoot="C:\Apache24\htdocs" accessType="MOUNT" port="0" />
       </webServer>
-      <webServer id="3e7a4c63-b735-43ce-a3fb-20e86b193402" name="notborder" url="http://notborder.org">
+      <webServer id="3e7a4c63-b735-43ce-a3fb-20e86b193402" name="notborder" url="https://notborder.org">
         <fileTransfer rootFolder="/var/www/html" accessType="SFTP" host="notborder.org" port="22" sshConfigId="3fcbb8d6-e9c3-463f-a110-97901baac815" sshConfig="ec2-user@notborder.org:22 key" keyPair="true">
           <advancedOptions>
-            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+            <advancedOptions controlEncoding="utf8" dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
           </advancedOptions>
         </fileTransfer>
       </webServer>
