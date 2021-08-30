@@ -12,6 +12,13 @@
           </advancedOptions>
         </fileTransfer>
       </webServer>
+      <webServer id="79846de6-8a70-4678-ba06-e36df54947d3" name="newlocastion" url="https://notborder.org">
+        <fileTransfer rootFolder="/var/www/html" accessType="SFTP" host="notborder.org" port="22" sshConfigId="3fcbb8d6-e9c3-463f-a110-97901baac815" sshConfig="ec2-user@notborder.org:22 key" keyPair="true">
+          <advancedOptions>
+            <advancedOptions controlEncoding="utf8" dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
     </option>
   </component>
 </project>

@@ -41,7 +41,9 @@ $(document).ready(function () {
     sound6 = new buzz.sound("assets/sound/perfect.mp3");
     sound7 = new buzz.sound("assets/sound/sadtrumpet.mp3");
     //fetchData(localStorage.getItem("user"));
-    fetchData(2);
+    console.log(localStorage.getItem("user"));
+    console.log(window.location.origin);
+    fetchData(localStorage.getItem("user"));
     $('#test').hide();
 });
 

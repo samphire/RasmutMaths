@@ -1,11 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" autoUpload="Always" serverName="notborder" remoteFilesAllowedToDisappearOnAutoupload="false">
+  <component name="PublishConfigData" autoUpload="Always" serverName="newlocastion" remoteFilesAllowedToDisappearOnAutoupload="false">
     <serverData>
       <paths name="localhost">
         <serverdata>
           <mappings>
             <mapping deploy="scopic\math" local="$PROJECT_DIR$" web="/scopic/math" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="newlocastion">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/scopic" local="$PROJECT_DIR$" web="/scopic" />
           </mappings>
         </serverdata>
       </paths>
