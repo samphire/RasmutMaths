@@ -143,6 +143,7 @@ function print(txt) {
 // Create "start", "pause" and "reset" functions
 
 function start() {
+    $('.stopwatch').show();
     elapsedTime = 0;
     startTime = Date.now() - elapsedTime;
     timerInterval = setInterval(function printTime() {

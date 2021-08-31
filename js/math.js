@@ -132,11 +132,17 @@ function makeTest(numDig, numOp, op, numq, exid, itdone, exindex, btnimage, time
             opChar = "/";
             break;
         case 5:
+            opChar = "/";
+            break;
         case 7:
-        case 9:// THIS IS FOR TIMES TABLES MULTIPLY
+        case 9:
+        case 11:// THIS IS FOR TIMES TABLES MULTIPLY
             opChar = "/"
+            place.insertAdjacentHTML("afterbegin", stopwatchHtml);
             break;
         case 6:
+            opChar = "*";
+            break;
         case 8:
         case 10:
         case 12:// THIS IS FOR TIMES TABLES DIVIDE
@@ -165,13 +171,20 @@ function makeTest(numDig, numOp, op, numq, exid, itdone, exindex, btnimage, time
                 operands = getDivOperands(numDig, numOp);
                 break;
             case 5:
+                operands = getTimesTableOperandsDivide(numDig, numOp, btnImage, opArr[timesTableOp]);
+                timesTableOp = timesTableOp < 10 ? timesTableOp += 1 : 2;
+                break;
             case 7:
             case 9:
+            case 11:
                 operands = getTimesTableOperandsDivide(numDig, numOp, btnImage, opArr[timesTableOp]);
                 timesTableOp = timesTableOp < 10 ? timesTableOp += 1 : 2;
                 start();
                 break;
             case 6:
+                operands = getTimesTableOperandsMultiply(numDig, numOp, btnImage, opArr[timesTableOp]);
+                timesTableOp = timesTableOp < 10 ? timesTableOp += 1 : 2;
+                break;
             case 8:
             case 10:
             case 12:
@@ -317,7 +330,8 @@ function checkResult(event) {
 function quitExercise() {
     //Finish exercise
     streak = 0;
-    $("#test").children().not(".stopwatch").remove();
+    // $("#test").children().not(".stopwatch").remove();
+    $('.stopwatch').remove();
     $('#test').hide();
     $('#welcome').show();
 }

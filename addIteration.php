@@ -11,9 +11,12 @@ $sql = "UPDATE tbl_user SET `cash_earned`=".$_GET['newcash']." WHERE id='".$_GET
 $result3 = mysqli_query($conn, $sql);
 
 if($_GET['story_complete'] == "true"){
+echo "story complete is true";
 $newStoryId = 1 + (int)$_GET['storyid'];
+echo "old story id is {$_GET['storyid']}. New story id is {$newStoryId}";
 // update existing story to new one and reset variables
-$sql = "UPDATE `sammath`.`tbl_user_has_tbl_story` SET `tbl_story_id` = '".$newStoryId."', `avatar_lvl` = '1', `perfects` = '0' WHERE (`tbl_user_id` = '".$_GET['user']."')";
+$sql = "UPDATE `tbl_user_has_tbl_story` SET `tbl_story_id` = '".$newStoryId."', `avatar_lvl` = '1', `perfects` = '0' WHERE (`tbl_user_id` = '".$_GET['user']."')";
+echo $sql;
 $result = mysqli_query($conn, $sql);
 print mysqli_affected_rows($conn);
 // delete existing entries in tbl_scores and create new ones
