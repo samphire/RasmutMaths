@@ -19,13 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e1c99163-be11-4ecf-960e-da9161b7b4b7" name="Default Changelist" comment="moved all the files into the panscopic directory in order to use the scopic login in localstorage (which does not work from a subdomain!). Added all tables to the panscopic database. Updated queries to use small quotes around the user id, because id is now a varchar, not an integer, to integrate with panscopic id. Phew....">
-      <change afterPath="$PROJECT_DIR$/assets/img/2.png" afterDir="false" />
+    <list default="true" id="e1c99163-be11-4ecf-960e-da9161b7b4b7" name="Default Changelist" comment="Debug commit. Sorted out switch statements to make stopwatch appear and disappear properly (stopwatch div is removed and recreated...). Also, created '2.png', which was missing.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/addIteration.php" beforeDir="false" afterPath="$PROJECT_DIR$/addIteration.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/math.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/math.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/testMath.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/testMath.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/math.html" beforeDir="false" afterPath="$PROJECT_DIR$/math.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +98,8 @@
       <workItem from="1630293213735" duration="6419000" />
       <workItem from="1630392877696" duration="36000" />
       <workItem from="1630392983945" duration="11000" />
-      <workItem from="1630393008603" duration="6458000" />
+      <workItem from="1630393008603" duration="6744000" />
+      <workItem from="1630548404979" duration="53000" />
     </task>
     <task id="LOCAL-00001" summary="Absolutely finished.&#10;The only problem is how to deal by messaging with the utter completion of the course. I could do with another sweet alert. Also, need to find out why sweet alert is disappearing early.">
       <created>1603808330274</created>
@@ -125,7 +122,14 @@
       <option name="project" value="LOCAL" />
       <updated>1630301662059</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Debug commit. Sorted out switch statements to make stopwatch appear and disappear properly (stopwatch div is removed and recreated...). Also, created '2.png', which was missing.">
+      <created>1630401132500</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1630401132500</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -147,6 +151,7 @@
     <MESSAGE value="Absolutely finished.&#10;The only problem is how to deal by messaging with the utter completion of the course. I could do with another sweet alert. Also, need to find out why sweet alert is disappearing early." />
     <MESSAGE value="Added cute-alert because sweet alert kept closing without reason. Initial test suggests that cute-alert works! userid is still hard-coded!!! Must add login functionality." />
     <MESSAGE value="moved all the files into the panscopic directory in order to use the scopic login in localstorage (which does not work from a subdomain!). Added all tables to the panscopic database. Updated queries to use small quotes around the user id, because id is now a varchar, not an integer, to integrate with panscopic id. Phew...." />
-    <option name="LAST_COMMIT_MESSAGE" value="moved all the files into the panscopic directory in order to use the scopic login in localstorage (which does not work from a subdomain!). Added all tables to the panscopic database. Updated queries to use small quotes around the user id, because id is now a varchar, not an integer, to integrate with panscopic id. Phew...." />
+    <MESSAGE value="Debug commit. Sorted out switch statements to make stopwatch appear and disappear properly (stopwatch div is removed and recreated...). Also, created '2.png', which was missing." />
+    <option name="LAST_COMMIT_MESSAGE" value="Debug commit. Sorted out switch statements to make stopwatch appear and disappear properly (stopwatch div is removed and recreated...). Also, created '2.png', which was missing." />
   </component>
 </project>

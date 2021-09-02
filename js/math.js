@@ -330,7 +330,7 @@ function checkResult(event) {
 function quitExercise() {
     //Finish exercise
     streak = 0;
-    // $("#test").children().not(".stopwatch").remove();
+    $("#test").children().not(".stopwatch").remove();
     $('.stopwatch').remove();
     $('#test').hide();
     $('#welcome').show();
